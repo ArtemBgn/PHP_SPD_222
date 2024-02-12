@@ -1,0 +1,9 @@
+body {
+    background-color: #eee;
+}
+.brand-logo img {
+    max-height: 50px;
+}
+.mymodel {
+    color: black;
+}
