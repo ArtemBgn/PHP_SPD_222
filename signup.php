@@ -1,4 +1,4 @@
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">ВХІД</a>
 
 <div id="modal1" class="modal">
   <form class="col s12" method="post" asp-action="/">

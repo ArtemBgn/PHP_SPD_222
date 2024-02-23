@@ -35,7 +35,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <button class="btn btn-success" type="submit">Реєстрація</button>
+            <button id="signup-button" class="btn btn-success" type="button">Реєстрація</button>
         </div>
     </div>
 </form>
