@@ -6,7 +6,7 @@ $uri =  $_SERVER['REQUEST_URI'];
 // якщо у запиті є гет-параметри (знак ?), то прибираємо цю частину
 $pos = strpos($uri, '?');
 if($pos > 0) {
-    $uri = substr($uri, 1, $pos);
+    $uri = substr($uri, 1, $pos-1);
 }
 else
 {

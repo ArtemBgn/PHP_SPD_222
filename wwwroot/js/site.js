@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     const signupButton = document.getElementById("signup-button");
 	if(signupButton) { signupButton.onclick = signupButtonClick; }
+    const authButton = document.getElementById("auth-button");
+	if(authButton) { authButton.onclick = authButtonClick; }
+    const outputButton = document.getElementById("output-button");
+	if(outputButton) { outputButton.onclick = outputButtonClick; }
 });
 
 function signupButtonClick(e) {
@@ -120,10 +124,49 @@ function signupButtonClick(e) {
 	if( avatarInput.files.length > 0 ) {
 		formData.append( "avatar-user", avatarInput.files[0] ) ;
 	}
-
     // передаємо - формуємо запит
-
     fetch("/auth", { method: 'POST', body: formData } )
     .then( r => r.json())
-    .then( console.log );
+    .then( j => {
+        if( j.status == 1) { // реєстрація успішна
+            alert( 'реєстрація успішна' );
+            window.location = '/' ; // переходимо на головну сторінку
+        }
+        else { // помилка реєстрації (повідомлення у полі message)
+            allert( j.data.message ); 
+        }
+    } );
+}
+function authButtonClick() {
+    const emailInput = document.querySelector('input[name="auth-email"]');
+    if(! emailInput) {throw "auth-email not found";}
+    const passwordInput = document.querySelector('input[name="auth-password"]');
+    if(! passwordInput) {throw "auth-password not found";}
+    //console.log(emailInput.value, passwordInput.value);
+    fetch(`/auth?email=${emailInput.value}&password=${passwordInput.value}`, {
+        method: 'PATCH'
+    })
+    .then( r => r.json() )
+    .then( j => {
+        if( j.status == 1) { // вхід успішний
+            window.location.reload();// window.location = '/' ; - перехiд на головну сторінку
+        }
+        else { // помилка реєстрації (повідомлення у полі message)
+            allert( j.data.message );
+        }
+    } );
+}
+function outputButtonClick() {
+    fetch(`/auth`, { method: 'DELETE' })
+    .then( r => r.json() )
+    .then( j => {
+        if (j.status == 1) {
+            //console.log("Кнопка працює");
+            window.location = '/' ;
+            //console.log(j.data.message + ' ' + j.meta.time ) ;
+        }
+        else {
+            console.log(j.data.message +" - Server error") ;
+        }
+    });
 }

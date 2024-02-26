@@ -1,6 +1,6 @@
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1">ВХІД</a>
+<a class="waves-effect waves-light btn modal-trigger" href="#auth-modal">ВХІД</a>
 
-<div id="modal1" class="modal">
+<div id="auth-modal" class="modal">
   <form class="col s12" method="post" asp-action="/">
     <div class="modal-content mymodel">
       <h4 class="mymodel">Введіть e-mail та пароль для входу</h4>
