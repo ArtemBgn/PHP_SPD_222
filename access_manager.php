@@ -50,12 +50,13 @@ if($uri!="")
 }
 
 $routes = [
-    ''         => 'index.php',
-    //'signup'   => 'signup.php',
-    'basics'   => 'basics.php',
-    'layout'   => 'layout.php',
-    'api'      => 'api.php',
-    'reg'      => 'reg.php' 
+    ''              => 'index.php',
+    //'signup'      => 'signup.php',
+    'basics'        => 'basics.php',
+    'layout'        => 'layout.php',
+    'api'           => 'api.php',
+    'reg'           => 'reg.php',
+    'useroffice'    => 'useroffice.php'
 ];
 if(isset($routes[$uri])) { //у маршрутах є відповідний запис
     $page_body = $routes[$uri] ;

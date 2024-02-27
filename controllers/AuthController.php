@@ -122,11 +122,11 @@ class AuthController extends ApiController {
         }
         $password = $_GET["password"];
         $db = $this->connect_db_or_exit();
-        $sql = "SELECT * FROM Users u WHERE u.email = ? AND u.password = ?";
+        $sql = "SELECT * FROM Users u WHERE u.email = ? AND u.password = ?"; // SQL-запит на перевірку email та password 
         try {
             $prep = $db->prepare($sql);
             $prep->execute( [$email, md5( $password )] );
-            $res = $prep->fetch();
+            $res = $prep->fetch();                          // = (~$db->prepare($sql)~)->/(~execute([$email, md5($password)])~)/->fetch()
             //$result['data']['message'] = var_export($res, true);
             if($res === false) {
                 $result[ 'data']['message'] = "Credentials rejected'";
@@ -147,7 +147,6 @@ class AuthController extends ApiController {
         $this->end_with( $result ) ;
     }
     protected function do_delete() {
-        //session_destroy();
         $result = [
             'status' => 0,
             'meta' => [

@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	if(authButton) { authButton.onclick = authButtonClick; }
     const outputButton = document.getElementById("output-button");
 	if(outputButton) { outputButton.onclick = outputButtonClick; }
+    const exitButton = document.getElementById("profile-exit-button");
+	if(exitButton) { exitButton.onclick = outputButtonClick; }
+    const deleteProfileButton = document.getElementById("profile-delete-button");
+	if(deleteProfileButton) { deleteProfileButton.onclick = deleteProfileButtonClick; }
 });
 
 function signupButtonClick(e) {
@@ -169,4 +173,7 @@ function outputButtonClick() {
             console.log(j.data.message +" - Server error") ;
         }
     });
+}
+function deleteProfileButtonClick() {
+    
 }

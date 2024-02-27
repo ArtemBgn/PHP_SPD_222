@@ -46,6 +46,7 @@
           if (!isset($_SESSION['user'])) {
             echo '<li><a class="waves-effect waves-light modal-trigger" href="#auth-modal"><i class="material-icons prefix">key</i></a></li>';
           } else {
+            echo "<li><a class='waves-effect waves-light' href='/useroffice'><img src='/avatars/{$user[4]}' class='circle responsive-img' style='max-height: 75px; max-width: 75px; border-radius: 25px; vertical-align: top;' /></a></li>";
             echo '<li><a id="output-button" class="waves-effect waves-light" href="#"><i class="material-icons prefix">close</i></a></li>';
           }
           ?>
